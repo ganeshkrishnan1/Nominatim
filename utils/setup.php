@@ -205,7 +205,7 @@ if ($aCMDResult['import-data'] || $aCMDResult['all']) {
         $osm2pgsql .= ' --tablespace-main-data '.CONST_Tablespace_Place_Data;
     if (CONST_Tablespace_Place_Index)
         $osm2pgsql .= ' --tablespace-main-index '.CONST_Tablespace_Place_Index;
-    $osm2pgsql .= ' -lsc -O gazetteer --hstore --number-processes 1';
+    $osm2pgsql .= ' -lsc -O gazetteer --hstore --number-processes 15';
     $osm2pgsql .= ' -C '.$iCacheMemory;
     $osm2pgsql .= ' -P '.$aDSNInfo['port'];
     if (isset($aDSNInfo['username']) && $aDSNInfo['username']) {
