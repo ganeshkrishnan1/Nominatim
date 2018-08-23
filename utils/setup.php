@@ -63,14 +63,7 @@ if ($aCMDResult['import-data'] || $aCMDResult['all']) {
 }
 
 // by default, use all but one processor, but never more than 15.
-$iInstances = isset($aCMDResult['threads'])
-              ? $aCMDResult['threads']
-              : (min(16, getProcessorCount()) - 1);
-
-if ($iInstances < 1) {
-    $iInstances = 1;
-    warn("resetting threads to $iInstances");
-}
+$iInstances = 15;
 
 // Assume we can steal all the cache memory in the box (unless told otherwise)
 if (isset($aCMDResult['osm2pgsql-cache'])) {
