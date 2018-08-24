@@ -63,7 +63,7 @@ if ($aCMDResult['import-data'] || $aCMDResult['all']) {
 }
 
 // by default, use all but one processor, but never more than 15.
-$iInstances = 15;
+$iInstances = 7;
 
 // Assume we can steal all the cache memory in the box (unless told otherwise)
 if (isset($aCMDResult['osm2pgsql-cache'])) {
@@ -205,8 +205,8 @@ if ($aCMDResult['import-data'] || $aCMDResult['all']) {
         $osm2pgsql .= ' --tablespace-main-data '.CONST_Tablespace_Place_Data;
     if (CONST_Tablespace_Place_Index)
         $osm2pgsql .= ' --tablespace-main-index '.CONST_Tablespace_Place_Index;
-    $osm2pgsql .= ' -lsc -O gazetteer --hstore --number-processes 15';
-    $osm2pgsql .= ' -C '.$iCacheMemory;
+    $osm2pgsql .= ' -lsc -O gazetteer --hstore --number-processes 7';
+    $osm2pgsql .= ' -C 28000';
     $osm2pgsql .= ' -P '.$aDSNInfo['port'];
     if (isset($aDSNInfo['username']) && $aDSNInfo['username']) {
         $osm2pgsql .= ' -U ' . $aDSNInfo['username'];
